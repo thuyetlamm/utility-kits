@@ -1,6 +1,7 @@
 {
   "author": "Lam Nguyen",
   "name": "loukas-utils",
+  "description": "A comprehensive collection of basic utility functions",
   "version": "1.0.5",
   "main": "./dist/index.js",
   "module": "./dist/index.mjs",
