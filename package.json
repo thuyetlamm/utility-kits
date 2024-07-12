@@ -1,0 +1,37 @@
+{
+  "author": "Lam Nguyen",
+  "name": "loukas-utils",
+  "version": "1.0.5",
+  "main": "./dist/index.js",
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.ts",
+  "files": [
+    "dist",
+    "package.json"
+  ],
+  "keywords": [
+    "tsup",
+    "npm",
+    "template",
+    "typescript",
+    "utils",
+    "loukas"
+  ],
+  "scripts": {
+    "build": "tsup ./src",
+    "test": "jest",
+    "prepare": "npm run build"
+  },
+  "exports": {
+    ".": {
+      "require": "./dist/index.js",
+      "import": "./dist/index.mjs",
+      "types": "./dist/index.d.ts"
+    }
+  },
+  "devDependencies": {
+    "tsup": "^8.1.0",
+    "typescript": "^5.5.3"
+  },
+  "license": "ISC"
+}

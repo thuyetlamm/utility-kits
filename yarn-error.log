@@ -1,0 +1,34 @@
+Arguments: 
+  /Users/loukas/.nvm/versions/node/v18.19.0/bin/node /Users/loukas/.cache/node/corepack/yarn/1.22.19/bin/yarn.js add typescript --dev
+
+PATH: 
+  /Users/loukas/.nvm/versions/node/v18.19.0/bin:/opt/homebrew/bin:/opt/homebrew/sbin:/usr/local/bin:/System/Cryptexes/App/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/local/bin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/bin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin
+
+Yarn version: 
+  1.22.19
+
+Node version: 
+  18.19.0
+
+Platform: 
+  darwin arm64
+
+Trace: 
+  Error: connect EHOSTUNREACH 2606:4700::6810:223:443 - Local (:::55859)
+      at internalConnect (node:net:1100:16)
+      at defaultTriggerAsyncIdScope (node:internal/async_hooks:462:18)
+      at emitLookup (node:net:1381:9)
+      at /Users/loukas/.cache/node/corepack/yarn/1.22.19/lib/cli.js:103587:28
+      at /Users/loukas/.cache/node/corepack/yarn/1.22.19/lib/cli.js:103496:13
+      at module.exports.RawTask.call (/Users/loukas/.cache/node/corepack/yarn/1.22.19/lib/cli.js:79584:19)
+      at flush (/Users/loukas/.cache/node/corepack/yarn/1.22.19/lib/cli.js:79666:29)
+      at process.processTicksAndRejections (node:internal/process/task_queues:77:11)
+
+npm manifest: 
+  No manifest
+
+yarn manifest: 
+  No manifest
+
+Lockfile: 
+  No lockfile
