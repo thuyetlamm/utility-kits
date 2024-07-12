@@ -1,4 +1,5 @@
 type Nullable<T> = T | null;
+type Maybe<T> = T | undefined;
 declare enum DATATYPE {
     Number = "Number",
     String = "String",
@@ -11,4 +12,4 @@ declare enum DATATYPE {
     NaN = "NaN"
 }
 
-export { DATATYPE, type Nullable };
+export { DATATYPE, type Maybe, type Nullable };
