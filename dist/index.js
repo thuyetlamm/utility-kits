@@ -1,8 +1,10 @@
 "use strict";
+var __create = Object.create;
 var __defProp = Object.defineProperty;
 var __getOwnPropDesc = Object.getOwnPropertyDescriptor;
 var __getOwnPropNames = Object.getOwnPropertyNames;
 var __getOwnPropSymbols = Object.getOwnPropertySymbols;
+var __getProtoOf = Object.getPrototypeOf;
 var __hasOwnProp = Object.prototype.hasOwnProperty;
 var __propIsEnum = Object.prototype.propertyIsEnumerable;
 var __defNormalProp = (obj, key, value) => key in obj ? __defProp(obj, key, { enumerable: true, configurable: true, writable: true, value }) : obj[key] = value;
@@ -29,11 +31,21 @@ var __copyProps = (to, from, except, desc) => {
   }
   return to;
 };
+var __toESM = (mod, isNodeMode, target) => (target = mod != null ? __create(__getProtoOf(mod)) : {}, __copyProps(
+  // If the importer is in node compatibility mode or this is not an ESM
+  // file that has been converted to a CommonJS file using a Babel-
+  // compatible transform (i.e. "__esModule" has not been set), then set
+  // "default" to the CommonJS "module.exports" for node compatibility.
+  isNodeMode || !mod || !mod.__esModule ? __defProp(target, "default", { value: mod, enumerable: true }) : target,
+  mod
+));
 var __toCommonJS = (mod) => __copyProps(__defProp({}, "__esModule", { value: true }), mod);
 
 // src/index.ts
 var src_exports = {};
 __export(src_exports, {
+  Each: () => Each_default,
+  Show: () => Show_default,
   checkTypes: () => checkTypes_default,
   deepClone: () => deepClone_default,
   get: () => get_default,
@@ -137,8 +149,43 @@ var merge = (target, source) => {
   throw new Error("Both target and source should be either objects or arrays");
 };
 var merge_default = merge;
+
+// src/components/Show/Show.tsx
+var import_react = require("react");
+var Show = ({ children }) => {
+  let when = null;
+  let otherwise = null;
+  import_react.Children.forEach(children, (child) => {
+    if (!(0, import_react.isValidElement)(child)) return;
+    if (!child.props.isTrue) {
+      otherwise = child;
+    } else if (child.props.isTrue && !when) {
+      when = child;
+    }
+  });
+  return when || otherwise;
+};
+Show.When = ({ children, isTrue }) => {
+  return isTrue && children;
+};
+Show.Else = ({
+  children,
+  render
+}) => {
+  return render || children;
+};
+var Show_default = Show;
+
+// src/components/Each/Each.tsx
+var import_react2 = __toESM(require("react"));
+var DataList = ({ list, render, empty }) => {
+  return /* @__PURE__ */ import_react2.default.createElement(import_react2.Fragment, null, /* @__PURE__ */ import_react2.default.createElement(Show_default, null, /* @__PURE__ */ import_react2.default.createElement(Show_default.When, { isTrue: Array.isArray(list) && list.length > 0 }, import_react2.Children.toArray(list.map(render))), /* @__PURE__ */ import_react2.default.createElement(Show_default.Else, null, empty)));
+};
+var Each_default = DataList;
 // Annotate the CommonJS export names for ESM import in node:
 0 && (module.exports = {
+  Each,
+  Show,
   checkTypes,
   deepClone,
   get,

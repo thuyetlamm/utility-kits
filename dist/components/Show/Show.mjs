@@ -13,7 +13,6 @@ var Show = ({ children }) => {
   });
   return when || otherwise;
 };
-var Show_default = Show;
 Show.When = ({ children, isTrue }) => {
   return isTrue && children;
 };
@@ -23,6 +22,7 @@ Show.Else = ({
 }) => {
   return render || children;
 };
+var Show_default = Show;
 export {
   Show_default as default
 };

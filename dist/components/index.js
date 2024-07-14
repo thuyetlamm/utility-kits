@@ -3,21 +3,11 @@ var __create = Object.create;
 var __defProp = Object.defineProperty;
 var __getOwnPropDesc = Object.getOwnPropertyDescriptor;
 var __getOwnPropNames = Object.getOwnPropertyNames;
-var __getOwnPropSymbols = Object.getOwnPropertySymbols;
 var __getProtoOf = Object.getPrototypeOf;
 var __hasOwnProp = Object.prototype.hasOwnProperty;
-var __propIsEnum = Object.prototype.propertyIsEnumerable;
-var __defNormalProp = (obj, key, value) => key in obj ? __defProp(obj, key, { enumerable: true, configurable: true, writable: true, value }) : obj[key] = value;
-var __spreadValues = (a, b) => {
-  for (var prop in b || (b = {}))
-    if (__hasOwnProp.call(b, prop))
-      __defNormalProp(a, prop, b[prop]);
-  if (__getOwnPropSymbols)
-    for (var prop of __getOwnPropSymbols(b)) {
-      if (__propIsEnum.call(b, prop))
-        __defNormalProp(a, prop, b[prop]);
-    }
-  return a;
+var __export = (target, all) => {
+  for (var name in all)
+    __defProp(target, name, { get: all[name], enumerable: true });
 };
 var __copyProps = (to, from, except, desc) => {
   if (from && typeof from === "object" || typeof from === "function") {
@@ -35,21 +25,15 @@ var __toESM = (mod, isNodeMode, target) => (target = mod != null ? __create(__ge
   isNodeMode || !mod || !mod.__esModule ? __defProp(target, "default", { value: mod, enumerable: true }) : target,
   mod
 ));
+var __toCommonJS = (mod) => __copyProps(__defProp({}, "__esModule", { value: true }), mod);
 
-// src/get.ts
-var get = (obj, key, defaultValue) => {
-  if (!obj || !key) return void 0;
-  const keyParts = key.split(".");
-  let value = __spreadValues({}, obj);
-  for (const part of keyParts) {
-    value = value == null ? void 0 : value[part];
-    if (value === void 0) {
-      break;
-    }
-  }
-  return value || defaultValue;
-};
-var get_default = get;
+// src/components/index.tsx
+var components_exports = {};
+__export(components_exports, {
+  Each: () => Each_default,
+  Show: () => Show_default
+});
+module.exports = __toCommonJS(components_exports);
 
 // src/components/Show/Show.tsx
 var import_react = require("react");
@@ -75,21 +59,17 @@ Show.Else = ({
 }) => {
   return render || children;
 };
+var Show_default = Show;
 
 // src/components/Each/Each.tsx
 var import_react2 = __toESM(require("react"));
-
-// src/tests/get.test.ts
-test("get one floor", () => {
-  const result = get_default({ a: 10 }, "a");
-  expect(result).toBe(10);
+var DataList = ({ list, render, empty }) => {
+  return /* @__PURE__ */ import_react2.default.createElement(import_react2.Fragment, null, /* @__PURE__ */ import_react2.default.createElement(Show_default, null, /* @__PURE__ */ import_react2.default.createElement(Show_default.When, { isTrue: Array.isArray(list) && list.length > 0 }, import_react2.Children.toArray(list.map(render))), /* @__PURE__ */ import_react2.default.createElement(Show_default.Else, null, empty)));
+};
+var Each_default = DataList;
+// Annotate the CommonJS export names for ESM import in node:
+0 && (module.exports = {
+  Each,
+  Show
 });
-test("is undifined", () => {
-  const result = get_default(void 0, "a");
-  expect(result).toBe(void 0);
-});
-test("get function", () => {
-  const result = get_default({ a: 10, b: { z: 1 } }, "b.z");
-  expect(result).toBe(1);
-});
-//# sourceMappingURL=get.test.js.map
+//# sourceMappingURL=index.js.map
