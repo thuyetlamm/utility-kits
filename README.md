@@ -49,10 +49,10 @@ const Example = ({}: IndexProps) => {
   )
 }
 ```
-How to use DataList Component
+How to use Each Component
 
 ```typescript jsx
-import { DataList }
+import { Each } from "utility-kits"
 interface Todo {
   id : number
   title : string
@@ -60,7 +60,7 @@ interface Todo {
 const Parent = () => {
   const todos :Todo[] = [
       {id :1 , title :"Todo 1"}, 
-     {id : 2 , title : "Todo 2"}
+      {id : 2 , title : "Todo 2"}
   ]
   return (
           <Child todos={todos} />
