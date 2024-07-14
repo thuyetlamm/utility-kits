@@ -1,8 +1,8 @@
 {
   "author": "Lam Nguyen",
-  "name": "loukas-utils",
+  "name": "utility-kits",
   "description": "A comprehensive collection of basic utility functions",
-  "version": "1.0.8",
+  "version": "0.0.1",
   "main": "./dist/index.js",
   "module": "./dist/index.mjs",
   "types": "./dist/index.d.ts",
