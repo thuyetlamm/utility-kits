@@ -5,7 +5,20 @@ Develop by Lam Nguyen [My github](https://github.com/thuyetlamm)
 
 A comprehensive collection of basic utility functions including `isEmpty`, `get`, `merge`, `deepClone`, and more. This library aims to simplify common operations in JavaScript/TypeScript applications.
 
-## Contents
+## Installation
+
+
+
+```bash
+#NPM
+npm install utility-kits
+
+#YARN
+yarn add utility-kits
+```
+
+
+## Table of Contents
 
 - [Installation](#installation)
 - [Usage](#usage)
@@ -27,11 +40,16 @@ A comprehensive collection of basic utility functions including `isEmpty`, `get`
 
 ## Usage
 
-How to use Show Component
+
+### `Show`
+
+**Usage:**
+
 ```typescript jsx
+
 import { Show } from "utility-kits";
           
-const Example = ({}: IndexProps) => {
+const Example = () => {
   const [count ,setCount] = React.useState(0);
 
   return (
@@ -48,8 +66,14 @@ const Example = ({}: IndexProps) => {
           </Show>
   )
 }
+
 ```
-How to use Each Component
+[⇧ back to top](#table-of-contents)
+
+
+### `Each`
+
+**Usage:**
 
 ```typescript jsx
 import { Each } from "utility-kits"
@@ -69,26 +93,14 @@ const Parent = () => {
 
 const Child = ({ todos } : {todos : readonly Todo[]}) => {
   return (
-          <Each list={todos}
-                render={(item : Todo, index) => (
+          <Each 
+            list={todos}
+            render={(item : Todo, index) => (
                             <li key={item.id}>{item.title}</li>
                         )}
-                empty={<div>Empty content</div>}
+            empty={<div>Empty content</div>}
           />
   )
 }
 ```
 
-## Installation
-
-
-Install the library using npm:
-
-```bash
-npm install utility-kits
-```
-
-Install the library using yarn:
-
-```bash
-yarn add utility-kits
