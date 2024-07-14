@@ -23,7 +23,6 @@
     // "noLib": true,                                    /* Disable including any library files, including the default lib.d.ts. */
     // "useDefineForClassFields": true,                  /* Emit ECMAScript-standard-compliant class fields. */
     // "moduleDetection": "auto",                        /* Control what method is used to detect module-format JS files. */
-
     /* Modules */
     "module": "esnext",                                /* Specify what module code is generated. */
     // "rootDir": "./",                                  /* Specify the root folder within your source files. */
@@ -106,8 +105,8 @@
     "allowUnreachableCode": true,
     /* Completeness */
     // "skipDefaultLibCheck": true,                      /* Skip type checking .d.ts files that are included with TypeScript. */
-    "skipLibCheck": true,                                 /* Skip type checking all .d.ts files. */
+    "skipLibCheck": true                                 /* Skip type checking all .d.ts files. */
   },
   "include": ["src"],
-  "exclude": ["node_modules", "test"]
+  "exclude": ["node_modules", "test","dist"]
 }

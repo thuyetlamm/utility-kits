@@ -1,13 +1,13 @@
 import React, { Children, Fragment } from 'react'
 import Show from "../Show/Show";
 
-interface DataListProps<T> {
-    list: T[]
+interface EachProps<T> {
+    list: T[] | readonly T[];
     render: (item: T, index: number) => React.ReactNode
     empty?: React.ReactNode
 }
 
-const DataList = <T,>({ list, render, empty }: DataListProps<T>) => {
+const Each = <T,>({ list, render, empty }: EachProps<T>) => {
     return (
         <Fragment>
             {
@@ -20,4 +20,6 @@ const DataList = <T,>({ list, render, empty }: DataListProps<T>) => {
     )
 }
 
-export default DataList
+export default Each
+
+
