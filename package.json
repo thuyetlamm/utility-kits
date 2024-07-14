@@ -1,8 +1,8 @@
 {
   "author": "Lam Nguyen",
   "name": "utility-kits",
-  "description": "A comprehensive collection of basic utility functions",
-  "version": "0.0.1",
+  "description": "A comprehensive collection of basic utility functions and more",
+  "version": "1.0.1",
   "main": "./dist/index.js",
   "module": "./dist/index.mjs",
   "types": "./dist/index.d.ts",
@@ -31,6 +31,9 @@
     }
   },
   "devDependencies": {
+    "@types/jest": "^29.5.12",
+    "jest": "^29.7.0",
+    "ts-jest": "^29.2.2",
     "tsup": "^8.1.0",
     "typescript": "^5.5.3"
   },

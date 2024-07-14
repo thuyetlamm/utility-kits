@@ -1,11 +1,11 @@
 declare const checkTypeInstance: {
-    isObject: (value: unknown) => boolean;
-    isArray: (value: unknown) => boolean;
-    isNaN: (value: unknown) => boolean;
-    isFunction: (value: unknown) => boolean;
-    checkType: (value: unknown) => string;
-    isString: (value: unknown) => boolean;
-    isNumber: (value: unknown) => boolean;
+    isObject: (value: object) => boolean;
+    isArray: (value: object) => boolean;
+    isNaN: (value: number) => boolean;
+    isFunction: (value: object) => boolean;
+    checkType: (value: object | number | string) => string;
+    isString: (value: string) => boolean;
+    isNumber: (value: number) => boolean;
 };
 
 export { checkTypeInstance as default };

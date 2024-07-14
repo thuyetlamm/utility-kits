@@ -1,0 +1,1 @@
+{"version":3,"sources":["../../src/types/merge.d.ts"],"sourcesContent":["export type MergeObject<T> = T extends object ? T : never\n"],"mappings":";;;;;;;;;;;;;;;;AAAA;AAAA;","names":[]}

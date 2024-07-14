@@ -1,6 +1,6 @@
 import deepClone  from "./deepClone"
+import { MergeObject } from "./types/merge";
 
-type MergeableObject<T> = T extends object ? T : never
 
 const merge = <T extends object>(target: T, source: T) => {
     if (!target || !source) return target ?? source
@@ -20,8 +20,8 @@ const merge = <T extends object>(target: T, source: T) => {
                 const sourceValue = clonedSource[key]
                 if (clonedSource[key] instanceof Object && key in clonedTarget) {
                     result[key] = merge(
-                        targetValue as MergeableObject<typeof targetValue>,
-                        sourceValue as MergeableObject<typeof sourceValue>,
+                        targetValue as MergeObject<typeof targetValue>,
+                        sourceValue as MergeObject<typeof sourceValue>,
                     )
                 } else {
                     result[key] = sourceValue
