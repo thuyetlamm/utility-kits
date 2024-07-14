@@ -1,7 +1,7 @@
 {
   "author": "Lam Nguyen",
   "name": "utility-kits",
-  "description": "A comprehensive collection of basic utility functions and more",
+  "description": "A comprehensive collection of basic utility functions and component for React",
   "version": "1.0.1",
   "main": "./dist/index.js",
   "module": "./dist/index.mjs",
@@ -32,10 +32,14 @@
   },
   "devDependencies": {
     "@types/jest": "^29.5.12",
+    "@types/react": "^18.3.3",
     "jest": "^29.7.0",
     "ts-jest": "^29.2.2",
     "tsup": "^8.1.0",
     "typescript": "^5.5.3"
   },
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "react": "^18.3.1"
+  }
 }
