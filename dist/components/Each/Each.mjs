@@ -28,10 +28,10 @@ Show.Else = ({
 var Show_default = Show;
 
 // src/components/Each/Each.tsx
-var DataList = ({ list, render, empty }) => {
+var Each = ({ list, render, empty }) => {
   return /* @__PURE__ */ React.createElement(Fragment, null, /* @__PURE__ */ React.createElement(Show_default, null, /* @__PURE__ */ React.createElement(Show_default.When, { isTrue: Array.isArray(list) && list.length > 0 }, Children2.toArray(list.map(render))), /* @__PURE__ */ React.createElement(Show_default.Else, null, empty)));
 };
-var Each_default = DataList;
+var Each_default = Each;
 export {
   Each_default as default
 };

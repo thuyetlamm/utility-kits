@@ -1,10 +1,10 @@
 import React from 'react';
 
-interface DataListProps<T> {
-    list: T[];
+interface EachProps<T> {
+    list: T[] | readonly T[];
     render: (item: T, index: number) => React.ReactNode;
     empty?: React.ReactNode;
 }
-declare const DataList: <T>({ list, render, empty }: DataListProps<T>) => React.JSX.Element;
+declare const Each: <T>({ list, render, empty }: EachProps<T>) => React.JSX.Element;
 
-export { DataList as default };
+export { Each as default };

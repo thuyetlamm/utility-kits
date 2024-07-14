@@ -1,4 +1,4 @@
-import {NestedKeyOf, NestedKeyValue} from "./types/get";
+import { NestedKeyOf, NestedKeyValue } from "./types/get";
 
 
 const get = <T extends object, K extends NestedKeyOf<T>>(

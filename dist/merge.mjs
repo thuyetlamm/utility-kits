@@ -1,20 +1,3 @@
-var __defProp = Object.defineProperty;
-var __getOwnPropSymbols = Object.getOwnPropertySymbols;
-var __hasOwnProp = Object.prototype.hasOwnProperty;
-var __propIsEnum = Object.prototype.propertyIsEnumerable;
-var __defNormalProp = (obj, key, value) => key in obj ? __defProp(obj, key, { enumerable: true, configurable: true, writable: true, value }) : obj[key] = value;
-var __spreadValues = (a, b) => {
-  for (var prop in b || (b = {}))
-    if (__hasOwnProp.call(b, prop))
-      __defNormalProp(a, prop, b[prop]);
-  if (__getOwnPropSymbols)
-    for (var prop of __getOwnPropSymbols(b)) {
-      if (__propIsEnum.call(b, prop))
-        __defNormalProp(a, prop, b[prop]);
-    }
-  return a;
-};
-
 // src/deepClone.ts
 var deepClone = (obj) => {
   if (obj === null || typeof obj !== "object") {
@@ -42,14 +25,14 @@ var deepClone_default = deepClone;
 
 // src/merge.ts
 var merge = (target, source) => {
-  if (!target || !source) return target != null ? target : source;
+  if (!target || !source) return target ?? source;
   const clonedTarget = deepClone_default(target);
   const clonedSource = deepClone_default(source);
   if (Array.isArray(clonedTarget) && Array.isArray(clonedSource)) {
     return [...clonedTarget, ...clonedSource];
   }
   if (typeof target === "object" && typeof source === "object") {
-    const result = __spreadValues({}, clonedTarget);
+    const result = { ...clonedTarget };
     for (const key in source) {
       if (source.hasOwnProperty(key)) {
         const targetValue = clonedTarget[key];

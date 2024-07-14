@@ -1,27 +1,10 @@
-var __defProp = Object.defineProperty;
-var __getOwnPropSymbols = Object.getOwnPropertySymbols;
-var __hasOwnProp = Object.prototype.hasOwnProperty;
-var __propIsEnum = Object.prototype.propertyIsEnumerable;
-var __defNormalProp = (obj, key, value) => key in obj ? __defProp(obj, key, { enumerable: true, configurable: true, writable: true, value }) : obj[key] = value;
-var __spreadValues = (a, b) => {
-  for (var prop in b || (b = {}))
-    if (__hasOwnProp.call(b, prop))
-      __defNormalProp(a, prop, b[prop]);
-  if (__getOwnPropSymbols)
-    for (var prop of __getOwnPropSymbols(b)) {
-      if (__propIsEnum.call(b, prop))
-        __defNormalProp(a, prop, b[prop]);
-    }
-  return a;
-};
-
 // src/get.ts
 var get = (obj, key, defaultValue) => {
   if (!obj || !key) return void 0;
   const keyParts = key.split(".");
-  let value = __spreadValues({}, obj);
+  let value = { ...obj };
   for (const part of keyParts) {
-    value = value == null ? void 0 : value[part];
+    value = value?.[part];
     if (value === void 0) {
       break;
     }
@@ -77,20 +60,20 @@ var deepClone_default = deepClone;
 // src/isEmpty.ts
 var isEmpty = (obj) => {
   if (typeof obj === "string" && obj.trim().length === 0) return true;
-  return !Object.keys(obj != null ? obj : {}).length;
+  return !Object.keys(obj ?? {}).length;
 };
 var isEmpty_default = isEmpty;
 
 // src/merge.ts
 var merge = (target, source) => {
-  if (!target || !source) return target != null ? target : source;
+  if (!target || !source) return target ?? source;
   const clonedTarget = deepClone_default(target);
   const clonedSource = deepClone_default(source);
   if (Array.isArray(clonedTarget) && Array.isArray(clonedSource)) {
     return [...clonedTarget, ...clonedSource];
   }
   if (typeof target === "object" && typeof source === "object") {
-    const result = __spreadValues({}, clonedTarget);
+    const result = { ...clonedTarget };
     for (const key in source) {
       if (source.hasOwnProperty(key)) {
         const targetValue = clonedTarget[key];
@@ -139,10 +122,10 @@ var Show_default = Show;
 
 // src/components/Each/Each.tsx
 import React, { Children as Children2, Fragment } from "react";
-var DataList = ({ list, render, empty }) => {
+var Each = ({ list, render, empty }) => {
   return /* @__PURE__ */ React.createElement(Fragment, null, /* @__PURE__ */ React.createElement(Show_default, null, /* @__PURE__ */ React.createElement(Show_default.When, { isTrue: Array.isArray(list) && list.length > 0 }, Children2.toArray(list.map(render))), /* @__PURE__ */ React.createElement(Show_default.Else, null, empty)));
 };
-var Each_default = DataList;
+var Each_default = Each;
 export {
   Each_default as Each,
   Show_default as Show,

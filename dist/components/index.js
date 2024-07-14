@@ -63,10 +63,10 @@ var Show_default = Show;
 
 // src/components/Each/Each.tsx
 var import_react2 = __toESM(require("react"));
-var DataList = ({ list, render, empty }) => {
+var Each = ({ list, render, empty }) => {
   return /* @__PURE__ */ import_react2.default.createElement(import_react2.Fragment, null, /* @__PURE__ */ import_react2.default.createElement(Show_default, null, /* @__PURE__ */ import_react2.default.createElement(Show_default.When, { isTrue: Array.isArray(list) && list.length > 0 }, import_react2.Children.toArray(list.map(render))), /* @__PURE__ */ import_react2.default.createElement(Show_default.Else, null, empty)));
 };
-var Each_default = DataList;
+var Each_default = Each;
 // Annotate the CommonJS export names for ESM import in node:
 0 && (module.exports = {
   Each,
