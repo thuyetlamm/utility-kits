@@ -85,10 +85,10 @@ const Child = ({ todos } : {todos : readonly Todo[]}) => {
 Install the library using npm:
 
 ```bash
-npm install loukas-utils
+npm install utility-kits
 ```
 
 Install the library using yarn:
 
 ```bash
-yarn add loukas-utils
+yarn add utility-kits
