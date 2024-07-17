@@ -1,11 +1,16 @@
+import { DATATYPE } from './types/common.mjs';
+
 declare const checkTypeInstance: {
-    isObject: (value: object) => boolean;
-    isArray: (value: object) => boolean;
-    isNaN: (value: number) => boolean;
-    isFunction: (value: object) => boolean;
-    checkType: (value: object | number | string) => string;
-    isString: (value: string) => boolean;
-    isNumber: (value: number) => boolean;
+    isObject: <T>(value: T) => boolean;
+    isArray: <T>(value: T) => boolean;
+    isNaN: <T>(value: T) => boolean;
+    isFunction: <T>(value: T) => boolean;
+    checkType: <T>(value: T) => DATATYPE;
+    isString: <T>(value: T) => boolean;
+    isNumber: <T>(value: T) => boolean;
+    isSymbol: <T>(value: T) => boolean;
+    isNull: <T>(value: T) => boolean;
+    isUndefined: <T>(value: T) => boolean;
 };
 
 export { checkTypeInstance as default };

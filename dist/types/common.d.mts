@@ -9,7 +9,8 @@ declare enum DATATYPE {
     Null = "Null",
     Undefined = "Undefined",
     Function = "Function",
-    NaN = "NaN"
+    NaN = "NaN",
+    Symbol = "Symbol"
 }
 
 export { DATATYPE, type Maybe, type Nullable };

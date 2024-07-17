@@ -6,5 +6,6 @@ export { default as merge } from './merge.js';
 export { Maybe, Nullable } from './types/common.js';
 export { default as Show } from './components/Show/Show.js';
 export { default as Each } from './components/Each/Each.js';
+export { default as set } from './set.js';
 import './types/get.d.js';
 import 'react';

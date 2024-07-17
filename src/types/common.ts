@@ -10,4 +10,5 @@ export enum DATATYPE {
     Undefined = "Undefined",
     Function = "Function",
     NaN = "NaN",
+    Symbol = "Symbol",
 }

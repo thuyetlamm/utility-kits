@@ -30,6 +30,9 @@ var isNaN = (value) => checkType(value) === "NaN" /* NaN */;
 var isFunction = (value) => checkType(value) === "Function" /* Function */;
 var isNumber = (value) => checkType(value) === "Number" /* Number */;
 var isString = (value) => checkType(value) === "String" /* String */;
+var isSymbol = (value) => checkType(value) === "Symbol" /* Symbol */;
+var isNull = (value) => checkType(value) === "Null" /* Null */;
+var isUndefined = (value) => checkType(value) === "Undefined" /* Undefined */;
 var checkTypeInstance = {
   isObject,
   isArray,
@@ -37,7 +40,10 @@ var checkTypeInstance = {
   isFunction,
   checkType,
   isString,
-  isNumber
+  isNumber,
+  isSymbol,
+  isNull,
+  isUndefined
 };
 var checkTypes_default = checkTypeInstance;
 //# sourceMappingURL=checkTypes.js.map

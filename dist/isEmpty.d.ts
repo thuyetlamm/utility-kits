@@ -1,3 +1,3 @@
-declare const isEmpty: <T>(obj: T) => boolean;
+declare const isEmpty: <T>(val: T) => boolean;
 
 export { isEmpty as default };

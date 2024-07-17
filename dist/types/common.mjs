@@ -9,6 +9,7 @@ var DATATYPE = /* @__PURE__ */ ((DATATYPE2) => {
   DATATYPE2["Undefined"] = "Undefined";
   DATATYPE2["Function"] = "Function";
   DATATYPE2["NaN"] = "NaN";
+  DATATYPE2["Symbol"] = "Symbol";
   return DATATYPE2;
 })(DATATYPE || {});
 export {
