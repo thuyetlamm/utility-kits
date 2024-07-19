@@ -23,6 +23,15 @@ var checkTypeInstance = {
 };
 var checkTypes_default = checkTypeInstance;
 export {
-  checkTypes_default as default
+  checkTypes_default as default,
+  isArray,
+  isFunction,
+  isNaN,
+  isNull,
+  isNumber,
+  isObject,
+  isString,
+  isSymbol,
+  isUndefined
 };
 //# sourceMappingURL=checkTypes.mjs.map

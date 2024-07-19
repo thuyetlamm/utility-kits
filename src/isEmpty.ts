@@ -1,16 +1,16 @@
-import {checkTypes} from "./index";
+import { isArray, isString } from "./checkTypes";
 
 const isEmpty = <T>(val: T) => {
 
     if(!val) return true;
 
     // Check for an empty array
-    if(checkTypes.isArray(val) && val instanceof Array) {
+    if(isArray(val) && val instanceof Array) {
         return !val.length;
     }
     // Check for an empty string or array
 
-    if (checkTypes.isString(val) && val instanceof String) return !(val.trim().length === 0)
+    if (isString(val) && val instanceof String) return !(val.trim().length === 0)
 
     // Check for an empty Map or Set
 

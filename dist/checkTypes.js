@@ -20,7 +20,16 @@ var __toCommonJS = (mod) => __copyProps(__defProp({}, "__esModule", { value: tru
 // src/checkTypes.ts
 var checkTypes_exports = {};
 __export(checkTypes_exports, {
-  default: () => checkTypes_default
+  default: () => checkTypes_default,
+  isArray: () => isArray,
+  isFunction: () => isFunction,
+  isNaN: () => isNaN,
+  isNull: () => isNull,
+  isNumber: () => isNumber,
+  isObject: () => isObject,
+  isString: () => isString,
+  isSymbol: () => isSymbol,
+  isUndefined: () => isUndefined
 });
 module.exports = __toCommonJS(checkTypes_exports);
 var checkType = (value) => Object.prototype.toString.call(value).slice(8, -1);
@@ -46,4 +55,16 @@ var checkTypeInstance = {
   isUndefined
 };
 var checkTypes_default = checkTypeInstance;
+// Annotate the CommonJS export names for ESM import in node:
+0 && (module.exports = {
+  isArray,
+  isFunction,
+  isNaN,
+  isNull,
+  isNumber,
+  isObject,
+  isString,
+  isSymbol,
+  isUndefined
+});
 //# sourceMappingURL=checkTypes.js.map

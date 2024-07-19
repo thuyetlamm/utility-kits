@@ -1,5 +1,5 @@
 import memoizeCapped from './memoizeCapped'
-import {checkTypes} from "../index";
+import { isString } from "../checkTypes";
 
 const charCodeOfDot = '.'.charCodeAt(0)
 const reEscapeChar = /\\(\\)?/g
@@ -19,7 +19,7 @@ const rePropName = RegExp(
 
 const stringToPath = memoizeCapped((str?: string | string[]) : string[]  => {
     const result : string[] = []
-    if(!checkTypes.isString(str)) return result
+    if(!isString(str)) return result
     if ((str as string)?.charCodeAt(0) === charCodeOfDot) {
         result.push('')
     }

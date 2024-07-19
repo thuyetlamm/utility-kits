@@ -1,5 +1,5 @@
-import {checkTypes} from "../index";
 import {DATATYPE} from "../types/common";
+import { checkType } from "../checkTypes";
 
 /** Used to match property names within property paths. */
 const reIsDeepProp = /\.|\[(?:[^[\]]*|(["'])(?:(?!\1)[^\\]|\\.)*?\1)\]/
@@ -14,7 +14,7 @@ const isKey = <T extends string>(value :T, object : object): boolean => {
         return false
     }
 
-    if([DATATYPE.Number,DATATYPE.Boolean,DATATYPE.Null,DATATYPE.Symbol].includes(checkTypes.checkType(value))) {
+    if([DATATYPE.Number,DATATYPE.Boolean,DATATYPE.Null,DATATYPE.Symbol].includes(checkType(value))) {
         return true
     }
     return reIsPlainProp.test(value) || !reIsDeepProp.test(value) ||

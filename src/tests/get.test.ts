@@ -14,3 +14,8 @@ test('get function', () => {
     const result = get({a :10, b :{z :1}}, "b.z");
     expect(result).toBe(1);
 });
+
+test('get array', () => {
+    const result = get([{a :"name"}], "0.a");
+    expect(result).toBe("name");
+});

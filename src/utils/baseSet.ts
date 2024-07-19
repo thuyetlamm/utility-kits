@@ -1,15 +1,15 @@
 import castPath from "./cashPath";
-import {checkTypes} from "../index";
 import isIndex from "./isIndex";
 import assignValue from "./assignValue";
 import {DATATYPE} from "../types/common";
 import {NestedKeyOf, NestedKeyValue} from "../types/get";
+import  { checkType, isObject } from "../checkTypes";
 
 
 const INFINITY = 1 / 0
 
 function toKey<T>(value : T) {
-    if ([DATATYPE.Symbol,DATATYPE.String].includes(checkTypes.checkType(value))) {
+    if ([DATATYPE.Symbol,DATATYPE.String].includes(checkType(value))) {
         return value
     }
     const result = `${value}`
@@ -18,12 +18,11 @@ function toKey<T>(value : T) {
 
 
 function baseSet<T extends object,K extends NestedKeyOf<T>>(object : T, path : K, value : NestedKeyValue<T, K>) {
-    if (!checkTypes.isObject(object)) {
+    if (!isObject(object)) {
         return object
     }
     path = castPath(path as any, object)
-
-    const length = path.length
+       const length = path.length
     const lastIndex = length - 1
 
     let index = -1
@@ -35,7 +34,7 @@ function baseSet<T extends object,K extends NestedKeyOf<T>>(object : T, path : K
 
         if (index !== lastIndex) {
             const objValue = nested[key as keyof T]
-                newValue = checkTypes.isObject(objValue)
+                newValue = isObject(objValue)
                     ? objValue as NestedKeyValue<T, K>
                     : (isIndex(path[index + 1]) ? [] : {}) as NestedKeyValue<T, K>
 

@@ -1,4 +1,4 @@
-import {checkTypes} from "../index";
+import { isFunction } from "../checkTypes";
 
 /**
  * Creates a function that memoizes the result of `func`. If `resolver` is
@@ -21,7 +21,7 @@ export type MemFunction = TFunction & {
 };
 
 const memoize = (func:TFunction, resolver :TFunction) => {
-    if (!checkTypes.isFunction(func) || !checkTypes.isFunction(resolver)) {
+    if (!isFunction(func) || !isFunction(resolver)) {
         throw new TypeError('Expected a function');
     }
     const memoized = (...args: TKey) => {

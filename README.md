@@ -40,6 +40,68 @@ yarn add utility-kits
 
 ## Usage
 
+### `isEmpty`
+
+```typescript
+import { isEmpty } from "utility-kits";
+// Check value string , array , object
+// isEmpty('') => true
+// isEmpty({}) => true
+// isEmpty([]) => true
+// isEmpty(['Banana']) => false
+
+```
+
+### `get`
+
+```typescript
+import { get } from "utility-kits";
+
+interface Order {
+    id : number
+    product : string
+}
+interface Address {
+  street: string;
+  city: string;
+  postalCode: string;
+}
+
+interface Customer {
+  id: number;
+  name: string;
+  address: Address;
+  isActive: boolean;
+}
+const customer: Customer = {
+  id: 1,
+  name: "Alice",
+  address: {
+    street: "123 Main St",
+    city: "Anytown",
+    postalCode: "12345"
+  },
+  isActive: true,
+  orders : [
+    {
+        id :1,
+      product :"Product A"
+    },
+    {
+      id :1,
+      product :"Product A"
+    }
+  ]
+}
+get(customer,"name")
+// return "Alice"
+get(customer,"address.street")
+// return "123 Main St"
+get(customer,"orders.0.product")
+// return "Product A"
+
+```
+
 
 ### `Show`
 

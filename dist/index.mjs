@@ -324,7 +324,16 @@ export {
   checkTypes_default as checkTypes,
   deepClone_default as deepClone,
   get_default as get,
+  isArray,
   isEmpty_default as isEmpty,
+  isFunction,
+  isNaN,
+  isNull,
+  isNumber,
+  isObject,
+  isString,
+  isSymbol,
+  isUndefined,
   merge_default as merge,
   set_default as set
 };

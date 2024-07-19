@@ -49,7 +49,16 @@ __export(src_exports, {
   checkTypes: () => checkTypes_default,
   deepClone: () => deepClone_default,
   get: () => get_default,
+  isArray: () => isArray,
   isEmpty: () => isEmpty_default,
+  isFunction: () => isFunction,
+  isNaN: () => isNaN,
+  isNull: () => isNull,
+  isNumber: () => isNumber,
+  isObject: () => isObject,
+  isString: () => isString,
+  isSymbol: () => isSymbol,
+  isUndefined: () => isUndefined,
   merge: () => merge_default,
   set: () => set_default
 });
@@ -365,7 +374,16 @@ var set_default = set;
   checkTypes,
   deepClone,
   get,
+  isArray,
   isEmpty,
+  isFunction,
+  isNaN,
+  isNull,
+  isNumber,
+  isObject,
+  isString,
+  isSymbol,
+  isUndefined,
   merge,
   set
 });
