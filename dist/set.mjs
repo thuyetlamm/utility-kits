@@ -1,55 +1,11 @@
 // src/checkTypes.ts
 var checkType = (value) => Object.prototype.toString.call(value).slice(8, -1);
 var isObject = (value) => checkType(value) === "Object" /* Object */;
-var isArray = (value) => checkType(value) === "Array" /* Array */;
-var isNaN = (value) => checkType(value) === "NaN" /* NaN */;
 var isFunction = (value) => checkType(value) === "Function" /* Function */;
 var isNumber = (value) => checkType(value) === "Number" /* Number */;
 var isString = (value) => checkType(value) === "String" /* String */;
 var isSymbol = (value) => checkType(value) === "Symbol" /* Symbol */;
 var isNull = (value) => checkType(value) === "Null" /* Null */;
-var isUndefined = (value) => checkType(value) === "Undefined" /* Undefined */;
-var checkTypeInstance = {
-  isObject,
-  isArray,
-  isNaN,
-  isFunction,
-  checkType,
-  isString,
-  isNumber,
-  isSymbol,
-  isNull,
-  isUndefined
-};
-var checkTypes_default = checkTypeInstance;
-
-// src/components/Show/Show.tsx
-import { Children, isValidElement } from "react";
-var Show = ({ children }) => {
-  let when = null;
-  let otherwise = null;
-  Children.forEach(children, (child) => {
-    if (!isValidElement(child)) return;
-    if (!child.props.isTrue) {
-      otherwise = child;
-    } else if (child.props.isTrue && !when) {
-      when = child;
-    }
-  });
-  return when || otherwise;
-};
-Show.When = ({ children, isTrue }) => {
-  return isTrue && children;
-};
-Show.Else = ({
-  children,
-  render
-}) => {
-  return render || children;
-};
-
-// src/components/Each/Each.tsx
-import React, { Children as Children2, Fragment } from "react";
 
 // src/utils/isKey.ts
 var reIsDeepProp = /\.|\[(?:[^[\]]*|(["'])(?:(?!\1)[^\\]|\\.)*?\1)\]/;
@@ -58,7 +14,7 @@ var isKey = (value, object) => {
   if (Array.isArray(value)) {
     return false;
   }
-  if (["Number" /* Number */, "Boolean" /* Boolean */, "Null" /* Null */, "Symbol" /* Symbol */].includes(checkTypes_default.checkType(value))) {
+  if (["Number" /* Number */, "Boolean" /* Boolean */, "Null" /* Null */, "Symbol" /* Symbol */].includes(checkType(value))) {
     return true;
   }
   return reIsPlainProp.test(value) || !reIsDeepProp.test(value) || object != null && value in Object(object);
@@ -67,7 +23,7 @@ var isKey_default = isKey;
 
 // src/utils/memoize.ts
 var memoize = (func, resolver) => {
-  if (!checkTypes_default.isFunction(func) || !checkTypes_default.isFunction(resolver)) {
+  if (!isFunction(func) || !isFunction(resolver)) {
     throw new TypeError("Expected a function");
   }
   const memoized = (...args) => {
@@ -110,7 +66,7 @@ var rePropName = RegExp(
 );
 var stringToPath = memoizeCapped_default((str) => {
   const result = [];
-  if (!checkTypes_default.isString(str)) return result;
+  if (!isString(str)) return result;
   if ((str == null ? void 0 : str.charCodeAt(0)) === charCodeOfDot) {
     result.push("");
   }
@@ -141,7 +97,7 @@ var cashPath_default = castPath;
 var MAX_SAFE_INTEGER = 9007199254740991;
 var reIsUint = /^(?:0|[1-9]\d*)$/;
 function isIndex(value, length = MAX_SAFE_INTEGER) {
-  return !!length && (checkTypes_default.isNumber(value) || !checkTypes_default.isSymbol(value) && reIsUint.test(value)) && (Number(value) > -1 && Number(value) % 1 === 0 && Number(value) < length);
+  return !!length && (isNumber(value) || !isSymbol(value) && reIsUint.test(value)) && (Number(value) > -1 && Number(value) % 1 === 0 && Number(value) < length);
 }
 var isIndex_default = isIndex;
 
@@ -177,14 +133,14 @@ var assignValue_default = assignValue;
 // src/utils/baseSet.ts
 var INFINITY = 1 / 0;
 function toKey(value) {
-  if (["Symbol" /* Symbol */, "String" /* String */].includes(checkTypes_default.checkType(value))) {
+  if (["Symbol" /* Symbol */, "String" /* String */].includes(checkType(value))) {
     return value;
   }
   const result = `${value}`;
   return result === "0" && 1 / Number(value) === -INFINITY ? "-0" : result;
 }
 function baseSet(object, path, value) {
-  if (!checkTypes_default.isObject(object)) {
+  if (!isObject(object)) {
     return object;
   }
   path = cashPath_default(path, object);
@@ -197,7 +153,7 @@ function baseSet(object, path, value) {
     let newValue = value;
     if (index !== lastIndex) {
       const objValue = nested[key];
-      newValue = checkTypes_default.isObject(objValue) ? objValue : isIndex_default(path[index + 1]) ? [] : {};
+      newValue = isObject(objValue) ? objValue : isIndex_default(path[index + 1]) ? [] : {};
     }
     assignValue_default(nested, key, newValue);
     nested = nested[key];
@@ -208,8 +164,8 @@ var baseSet_default = baseSet;
 
 // src/set.ts
 var set = (object, path, value) => {
-  if (!object || !checkTypes_default.isObject(object)) return object;
-  return checkTypes_default.isNull(object) ? object : baseSet_default(object, path, value);
+  if (!object || !isObject(object)) return object;
+  return isNull(object) ? object : baseSet_default(object, path, value);
 };
 var set_default = set;
 export {

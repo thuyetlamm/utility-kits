@@ -46,7 +46,7 @@
     "tsup": "^8.1.0",
     "typescript": "^5.5.3"
   },
-  "license": "ISC",
+  "license": "MIT",
   "dependencies": {
     "react": "^18.3.1"
   }

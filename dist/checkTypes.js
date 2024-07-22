@@ -20,6 +20,7 @@ var __toCommonJS = (mod) => __copyProps(__defProp({}, "__esModule", { value: tru
 // src/checkTypes.ts
 var checkTypes_exports = {};
 __export(checkTypes_exports, {
+  checkType: () => checkType,
   default: () => checkTypes_default,
   isArray: () => isArray,
   isFunction: () => isFunction,
@@ -57,6 +58,7 @@ var checkTypeInstance = {
 var checkTypes_default = checkTypeInstance;
 // Annotate the CommonJS export names for ESM import in node:
 0 && (module.exports = {
+  checkType,
   isArray,
   isFunction,
   isNaN,

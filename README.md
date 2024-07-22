@@ -3,7 +3,7 @@
 Develop by Lam Nguyen [My github](https://github.com/thuyetlamm)
 
 
-A comprehensive collection of basic utility functions including `isEmpty`, `get`, `merge`, `deepClone`, and more. This library aims to simplify common operations in JavaScript/TypeScript applications.
+A comprehensive collection of basic utility functions including `isEmpty`, `get`,`set`, `merge`, `deepClone`, and more. This library aims to simplify common operations in JavaScript/TypeScript applications.
 
 ## Installation
 
@@ -25,6 +25,7 @@ yarn add utility-kits
 - [Functions](#functions)
     - [isEmpty](#isempty)
     - [get](#get)
+    - [set](#set)
     - [checkTypes](#checkTypes)
     - [compare](#compare)
     - [merge](#merge)
@@ -32,6 +33,7 @@ yarn add utility-kits
 - [Detailed Function Descriptions](#detailed-function-descriptions)
     - [isEmpty](#isempty)
     - [get](#get)
+    - [set](#set)
     - [checkTypes](#checkTypes)
     - [compare](#compare)
     - [merge](#merge)
@@ -45,12 +47,14 @@ yarn add utility-kits
 ```typescript
 import { isEmpty } from "utility-kits";
 // Check value string , array , object
-// isEmpty('') => true
-// isEmpty({}) => true
-// isEmpty([]) => true
-// isEmpty(['Banana']) => false
+//Output isEmpty('') => true
+//Output isEmpty({}) => true
+//Output isEmpty([]) => true
+//Output isEmpty(['Banana']) => false
 
 ```
+[⇧ back to top](#table-of-contents)
+
 
 ### `get`
 
@@ -94,14 +98,67 @@ const customer: Customer = {
   ]
 }
 get(customer,"name")
-// return "Alice"
+// Output "Alice"
 get(customer,"address.street")
-// return "123 Main St"
+// Output "123 Main St"
 get(customer,"orders.0.product")
-// return "Product A"
+// Output "Product A"
 
 ```
+[⇧ back to top](#table-of-contents)
 
+### `set`
+
+```typescript
+import { set } from "utility-kits";
+
+interface Address {
+  street: string;
+  city: string;
+  postalCode: string;
+}
+
+interface Customer {
+  id: number;
+  name: string;
+  address: Address;
+  isActive: boolean;
+}
+const customer: Customer = {
+  id: 1,
+  name: "Alice",
+  address: {
+    street: "123 Main St",
+    city: "Anytown",
+    postalCode: "12345"
+  },
+}
+set(customer,"name","Tom")
+/* Output 
+    {
+  id: 1,
+  name: "Tom",
+  address: {
+    street: "123 Main St",
+    city: "Anytown",
+    postalCode: "12345"
+  },
+}
+*/
+set(customer,"address.street","124 Sub St")
+/* Output 
+   {
+  id: 1,
+  name: "Tom",
+  address: {
+    street: "124 Sub St",
+    city: "Anytown",
+    postalCode: "12345"
+  },
+}
+*/
+```
+[⇧ back to top](#table-of-contents)
 
 ### `Show`
 

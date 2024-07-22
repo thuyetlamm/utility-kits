@@ -23,6 +23,7 @@ var checkTypeInstance = {
 };
 var checkTypes_default = checkTypeInstance;
 export {
+  checkType,
   checkTypes_default as default,
   isArray,
   isFunction,

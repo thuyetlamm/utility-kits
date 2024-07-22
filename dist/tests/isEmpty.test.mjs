@@ -1,35 +1,16 @@
 // src/checkTypes.ts
 var checkType = (value) => Object.prototype.toString.call(value).slice(8, -1);
-var isObject = (value) => checkType(value) === "Object" /* Object */;
 var isArray = (value) => checkType(value) === "Array" /* Array */;
-var isNaN = (value) => checkType(value) === "NaN" /* NaN */;
 var isFunction = (value) => checkType(value) === "Function" /* Function */;
-var isNumber = (value) => checkType(value) === "Number" /* Number */;
 var isString = (value) => checkType(value) === "String" /* String */;
-var isSymbol = (value) => checkType(value) === "Symbol" /* Symbol */;
-var isNull = (value) => checkType(value) === "Null" /* Null */;
-var isUndefined = (value) => checkType(value) === "Undefined" /* Undefined */;
-var checkTypeInstance = {
-  isObject,
-  isArray,
-  isNaN,
-  isFunction,
-  checkType,
-  isString,
-  isNumber,
-  isSymbol,
-  isNull,
-  isUndefined
-};
-var checkTypes_default = checkTypeInstance;
 
 // src/isEmpty.ts
 var isEmpty = (val) => {
   if (!val) return true;
-  if (checkTypes_default.isArray(val) && val instanceof Array) {
+  if (isArray(val) && val instanceof Array) {
     return !val.length;
   }
-  if (checkTypes_default.isString(val) && val instanceof String) return !(val.trim().length === 0);
+  if (isString(val) && val instanceof String) return !(val.trim().length === 0);
   if (val instanceof Map || val instanceof Set) {
     return !val.size;
   }
@@ -67,7 +48,7 @@ import React, { Children as Children2, Fragment } from "react";
 
 // src/utils/memoize.ts
 var memoize = (func, resolver) => {
-  if (!checkTypes_default.isFunction(func) || !checkTypes_default.isFunction(resolver)) {
+  if (!isFunction(func) || !isFunction(resolver)) {
     throw new TypeError("Expected a function");
   }
   const memoized = (...args) => {
@@ -110,7 +91,7 @@ var rePropName = RegExp(
 );
 var stringToPath = memoizeCapped_default((str) => {
   const result = [];
-  if (!checkTypes_default.isString(str)) return result;
+  if (!isString(str)) return result;
   if ((str == null ? void 0 : str.charCodeAt(0)) === charCodeOfDot) {
     result.push("");
   }

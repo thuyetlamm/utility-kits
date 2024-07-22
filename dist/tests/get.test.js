@@ -53,28 +53,8 @@ var get_default = get;
 
 // src/checkTypes.ts
 var checkType = (value) => Object.prototype.toString.call(value).slice(8, -1);
-var isObject = (value) => checkType(value) === "Object" /* Object */;
-var isArray = (value) => checkType(value) === "Array" /* Array */;
-var isNaN = (value) => checkType(value) === "NaN" /* NaN */;
 var isFunction = (value) => checkType(value) === "Function" /* Function */;
-var isNumber = (value) => checkType(value) === "Number" /* Number */;
 var isString = (value) => checkType(value) === "String" /* String */;
-var isSymbol = (value) => checkType(value) === "Symbol" /* Symbol */;
-var isNull = (value) => checkType(value) === "Null" /* Null */;
-var isUndefined = (value) => checkType(value) === "Undefined" /* Undefined */;
-var checkTypeInstance = {
-  isObject,
-  isArray,
-  isNaN,
-  isFunction,
-  checkType,
-  isString,
-  isNumber,
-  isSymbol,
-  isNull,
-  isUndefined
-};
-var checkTypes_default = checkTypeInstance;
 
 // src/components/Show/Show.tsx
 var import_react = require("react");
@@ -106,7 +86,7 @@ var import_react2 = __toESM(require("react"));
 
 // src/utils/memoize.ts
 var memoize = (func, resolver) => {
-  if (!checkTypes_default.isFunction(func) || !checkTypes_default.isFunction(resolver)) {
+  if (!isFunction(func) || !isFunction(resolver)) {
     throw new TypeError("Expected a function");
   }
   const memoized = (...args) => {
@@ -149,7 +129,7 @@ var rePropName = RegExp(
 );
 var stringToPath = memoizeCapped_default((str) => {
   const result = [];
-  if (!checkTypes_default.isString(str)) return result;
+  if (!isString(str)) return result;
   if ((str == null ? void 0 : str.charCodeAt(0)) === charCodeOfDot) {
     result.push("");
   }
@@ -181,5 +161,9 @@ test("is undifined", () => {
 test("get function", () => {
   const result = get_default({ a: 10, b: { z: 1 } }, "b.z");
   expect(result).toBe(1);
+});
+test("get array", () => {
+  const result = get_default([{ a: "name" }], "0.a");
+  expect(result).toBe("name");
 });
 //# sourceMappingURL=get.test.js.map
