@@ -3,7 +3,7 @@
 Develop by Lam Nguyen [My github](https://github.com/thuyetlamm)
 
 
-A comprehensive collection of basic utility functions including `isEmpty`, `get`,`set`, `merge`, `deepClone`, and more. This library aims to simplify common operations in JavaScript/TypeScript applications.
+A comprehensive collection of basic utility functions including `isEmpty`, `get`,`set`,`setNew`, `merge`, `deepClone`,`gte`,`lte`, and more. This library aims to simplify common operations in JavaScript/TypeScript applications.
 
 ## Installation
 
@@ -152,6 +152,22 @@ set(customer,"address.street","124 Sub St")
   name: "Tom",
   address: {
     street: "124 Sub St",
+    city: "Anytown",
+    postalCode: "12345"
+  },
+}
+*/
+
+set(customer,"address.street",() => {
+    // Condition value
+  return "Address 2"
+})
+/* Output 
+   {
+  id: 1,
+  name: "Tom",
+  address: {
+    street: "Address 2",
     city: "Anytown",
     postalCode: "12345"
   },

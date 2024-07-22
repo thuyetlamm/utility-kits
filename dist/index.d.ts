@@ -7,5 +7,6 @@ export { isArray, isFunction, isNaN, isNull, isNumber, isObject, isString, isSym
 export { default as Show } from './components/Show/Show.js';
 export { default as Each } from './components/Each/Each.js';
 export { default as set } from './set.js';
+export { default as setNew } from './setNew.js';
 import './types/get.d.js';
 import 'react';

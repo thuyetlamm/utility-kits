@@ -59,7 +59,8 @@ __export(src_exports, {
   isSymbol: () => isSymbol,
   isUndefined: () => isUndefined,
   merge: () => merge_default,
-  set: () => set_default
+  set: () => set_default,
+  setNew: () => setNew_default
 });
 module.exports = __toCommonJS(src_exports);
 
@@ -349,10 +350,25 @@ var baseSet_default = baseSet;
 
 // src/set.ts
 var set = (object, path, value) => {
-  if (!object || !isObject(object)) return object;
-  return isNull(object) ? object : baseSet_default(object, path, value);
+  if (!isObject(object) || isNull(object)) return object;
+  if (isFunction(value) && value instanceof Function) {
+    const currentValue = value();
+    return baseSet_default(object, path, currentValue);
+  }
+  return baseSet_default(object, path, value);
 };
 var set_default = set;
+
+// src/setNew.ts
+var setNew = (object, path, value) => {
+  if (!object || !isObject(object) || isNull(object)) return object;
+  if (isFunction(value) && value instanceof Function) {
+    const currentValue = value();
+    return baseSet_default(object, path, currentValue);
+  }
+  return baseSet_default(object, path, value);
+};
+var setNew_default = setNew;
 // Annotate the CommonJS export names for ESM import in node:
 0 && (module.exports = {
   Each,
@@ -370,6 +386,7 @@ var set_default = set;
   isSymbol,
   isUndefined,
   merge,
-  set
+  set,
+  setNew
 });
 //# sourceMappingURL=index.js.map

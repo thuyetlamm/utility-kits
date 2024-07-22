@@ -7,5 +7,6 @@ export { isArray, isFunction, isNaN, isNull, isNumber, isObject, isString, isSym
 export { default as Show } from './components/Show/Show.mjs';
 export { default as Each } from './components/Each/Each.mjs';
 export { default as set } from './set.mjs';
+export { default as setNew } from './setNew.mjs';
 import './types/get.d.mjs';
 import 'react';

@@ -190,8 +190,12 @@ var baseSet_default = baseSet;
 
 // src/set.ts
 var set = (object, path, value) => {
-  if (!object || !isObject(object)) return object;
-  return isNull(object) ? object : baseSet_default(object, path, value);
+  if (!isObject(object) || isNull(object)) return object;
+  if (isFunction(value) && value instanceof Function) {
+    const currentValue = value();
+    return baseSet_default(object, path, currentValue);
+  }
+  return baseSet_default(object, path, value);
 };
 var set_default = set;
 //# sourceMappingURL=set.js.map

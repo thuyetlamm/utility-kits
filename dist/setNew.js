@@ -1,148 +1,37 @@
+"use strict";
 var __defProp = Object.defineProperty;
-var __getOwnPropSymbols = Object.getOwnPropertySymbols;
+var __getOwnPropDesc = Object.getOwnPropertyDescriptor;
+var __getOwnPropNames = Object.getOwnPropertyNames;
 var __hasOwnProp = Object.prototype.hasOwnProperty;
-var __propIsEnum = Object.prototype.propertyIsEnumerable;
-var __defNormalProp = (obj, key, value) => key in obj ? __defProp(obj, key, { enumerable: true, configurable: true, writable: true, value }) : obj[key] = value;
-var __spreadValues = (a, b) => {
-  for (var prop in b || (b = {}))
-    if (__hasOwnProp.call(b, prop))
-      __defNormalProp(a, prop, b[prop]);
-  if (__getOwnPropSymbols)
-    for (var prop of __getOwnPropSymbols(b)) {
-      if (__propIsEnum.call(b, prop))
-        __defNormalProp(a, prop, b[prop]);
-    }
-  return a;
+var __export = (target, all) => {
+  for (var name in all)
+    __defProp(target, name, { get: all[name], enumerable: true });
 };
+var __copyProps = (to, from, except, desc) => {
+  if (from && typeof from === "object" || typeof from === "function") {
+    for (let key of __getOwnPropNames(from))
+      if (!__hasOwnProp.call(to, key) && key !== except)
+        __defProp(to, key, { get: () => from[key], enumerable: !(desc = __getOwnPropDesc(from, key)) || desc.enumerable });
+  }
+  return to;
+};
+var __toCommonJS = (mod) => __copyProps(__defProp({}, "__esModule", { value: true }), mod);
 
-// src/get.ts
-var get = (obj, key, defaultValue) => {
-  if (!obj || !key) return void 0;
-  const keyParts = key.split(".");
-  let value = __spreadValues({}, obj);
-  for (const part of keyParts) {
-    value = value == null ? void 0 : value[part];
-    if (value === void 0) {
-      break;
-    }
-  }
-  return value || defaultValue;
-};
-var get_default = get;
-
-// src/deepClone.ts
-var deepClone = (obj) => {
-  if (obj === null || typeof obj !== "object") {
-    return obj;
-  }
-  if (Array.isArray(obj)) {
-    const copy = [];
-    for (let i = 0; i < obj.length; i++) {
-      copy[i] = deepClone(obj[i]);
-    }
-    return copy;
-  }
-  if (obj instanceof Object) {
-    const copy = {};
-    for (const key in obj) {
-      if (obj.hasOwnProperty(key)) {
-        copy[key] = deepClone(obj[key]);
-      }
-    }
-    return copy;
-  }
-  throw new Error("Unable to copy object! Its type isn't supported.");
-};
-var deepClone_default = deepClone;
+// src/setNew.ts
+var setNew_exports = {};
+__export(setNew_exports, {
+  default: () => setNew_default
+});
+module.exports = __toCommonJS(setNew_exports);
 
 // src/checkTypes.ts
 var checkType = (value) => Object.prototype.toString.call(value).slice(8, -1);
 var isObject = (value) => checkType(value) === "Object" /* Object */;
-var isArray = (value) => checkType(value) === "Array" /* Array */;
-var isNaN = (value) => checkType(value) === "NaN" /* NaN */;
 var isFunction = (value) => checkType(value) === "Function" /* Function */;
 var isNumber = (value) => checkType(value) === "Number" /* Number */;
 var isString = (value) => checkType(value) === "String" /* String */;
 var isSymbol = (value) => checkType(value) === "Symbol" /* Symbol */;
 var isNull = (value) => checkType(value) === "Null" /* Null */;
-var isUndefined = (value) => checkType(value) === "Undefined" /* Undefined */;
-
-// src/isEmpty.ts
-var isEmpty = (val) => {
-  if (!val) return true;
-  if (isArray(val) && val instanceof Array) {
-    return !val.length;
-  }
-  if (isString(val) && val instanceof String) return !(val.trim().length === 0);
-  if (val instanceof Map || val instanceof Set) {
-    return !val.size;
-  }
-  return !Object.keys(val != null ? val : {}).length;
-};
-var isEmpty_default = isEmpty;
-
-// src/merge.ts
-var merge = (target, source) => {
-  if (!target || !source) return target != null ? target : source;
-  const clonedTarget = deepClone_default(target);
-  const clonedSource = deepClone_default(source);
-  if (Array.isArray(clonedTarget) && Array.isArray(clonedSource)) {
-    return [...clonedTarget, ...clonedSource];
-  }
-  if (typeof target === "object" && typeof source === "object") {
-    const result = __spreadValues({}, clonedTarget);
-    for (const key in source) {
-      if (source.hasOwnProperty(key)) {
-        const targetValue = clonedTarget[key];
-        const sourceValue = clonedSource[key];
-        if (clonedSource[key] instanceof Object && key in clonedTarget) {
-          result[key] = merge(
-            targetValue,
-            sourceValue
-          );
-        } else {
-          result[key] = sourceValue;
-        }
-      }
-    }
-    return result;
-  }
-  throw new Error("Both target and source should be either objects or arrays");
-};
-var merge_default = merge;
-
-// src/components/Show/Show.tsx
-import { Children, isValidElement } from "react";
-var Show = ({ children }) => {
-  let when = null;
-  let otherwise = null;
-  Children.forEach(children, (child) => {
-    if (!isValidElement(child)) return;
-    if (!child.props.isTrue) {
-      otherwise = child;
-    } else if (child.props.isTrue && !when) {
-      when = child;
-    }
-  });
-  return when || otherwise;
-};
-Show.When = ({ children, isTrue }) => {
-  return isTrue && children;
-};
-Show.Else = ({
-  children,
-  render
-}) => {
-  return render || children;
-};
-var Show_default = Show;
-
-// src/components/Each/Each.tsx
-import React, { Children as Children2, Fragment } from "react";
-var Each = ({ list, render, empty }) => {
-  return /* @__PURE__ */ React.createElement(Fragment, null, /* @__PURE__ */ React.createElement(Show_default, null, /* @__PURE__ */ React.createElement(Show_default.When, { isTrue: Array.isArray(list) && list.length > 0 }, Children2.toArray(list.map(render))), /* @__PURE__ */ React.createElement(Show_default.Else, null, empty)));
-};
-var Each_default = Each;
 
 // src/utils/isKey.ts
 var reIsDeepProp = /\.|\[(?:[^[\]]*|(["'])(?:(?!\1)[^\\]|\\.)*?\1)\]/;
@@ -299,17 +188,6 @@ function baseSet(object, path, value) {
 }
 var baseSet_default = baseSet;
 
-// src/set.ts
-var set = (object, path, value) => {
-  if (!isObject(object) || isNull(object)) return object;
-  if (isFunction(value) && value instanceof Function) {
-    const currentValue = value();
-    return baseSet_default(object, path, currentValue);
-  }
-  return baseSet_default(object, path, value);
-};
-var set_default = set;
-
 // src/setNew.ts
 var setNew = (object, path, value) => {
   if (!object || !isObject(object) || isNull(object)) return object;
@@ -320,23 +198,4 @@ var setNew = (object, path, value) => {
   return baseSet_default(object, path, value);
 };
 var setNew_default = setNew;
-export {
-  Each_default as Each,
-  Show_default as Show,
-  deepClone_default as deepClone,
-  get_default as get,
-  isArray,
-  isEmpty_default as isEmpty,
-  isFunction,
-  isNaN,
-  isNull,
-  isNumber,
-  isObject,
-  isString,
-  isSymbol,
-  isUndefined,
-  merge_default as merge,
-  set_default as set,
-  setNew_default as setNew
-};
-//# sourceMappingURL=index.mjs.map
+//# sourceMappingURL=setNew.js.map
