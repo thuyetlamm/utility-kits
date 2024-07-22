@@ -46,7 +46,7 @@ yarn add utility-kits
 
 ```typescript
 import { isEmpty } from "utility-kits";
-// Check value string , array , object
+// Avaiable ==> String , Array , Object , Map , Set
 //Output isEmpty('') => true
 //Output isEmpty({}) => true
 //Output isEmpty([]) => true
