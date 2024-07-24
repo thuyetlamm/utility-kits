@@ -2,7 +2,7 @@
   "author": "Lam Nguyen",
   "name": "utility-kits",
   "description": "A comprehensive collection of basic utility functions and component for React ( React >= 18)",
-  "version": "1.0.76",
+  "version": "1.0.75",
   "main": "./dist/index.js",
   "module": "./dist/index.mjs",
   "types": "./dist/index.d.ts",
@@ -21,9 +21,9 @@
   ],
   "repository": {
     "type": "git",
-    "url": "https://github.com/thuyetlamm/loukas-utils.git"
+    "url": "https://github.com/thuyetlamm/utility-kits.git"
   },
-  "homepage": "https://github.com/thuyetlamm/loukas-utils.git",
+  "homepage": "https://github.com/thuyetlamm/utility-kits.git",
   "scripts": {
     "build": "tsup ./src",
     "test": "jest",
