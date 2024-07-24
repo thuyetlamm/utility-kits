@@ -2,6 +2,7 @@ export { default as get } from './get.mjs';
 export { default as deepClone } from './deepClone.mjs';
 export { default as isEmpty } from './isEmpty.mjs';
 export { default as merge } from './merge.mjs';
+export { default as compare } from './compare.mjs';
 export { Maybe, Nullable } from './types/common.mjs';
 export { isArray, isFunction, isNaN, isNull, isNumber, isObject, isString, isSymbol, isUndefined } from './checkTypes.mjs';
 export { default as Show } from './components/Show/Show.mjs';

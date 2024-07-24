@@ -103,6 +103,8 @@ get(customer,"address.street")
 // Output "123 Main St"
 get(customer,"orders.0.product")
 // Output "Product A"
+get(customer,"age",0)
+// Output 0
 
 ```
 [⇧ back to top](#table-of-contents)

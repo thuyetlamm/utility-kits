@@ -1,5 +1,6 @@
 import { TKey } from './memoize.mjs';
 
-declare function castPath<T extends TKey>(value: T, object: object): T | T[];
+type ReturnCashPath<T> = T | T[];
+declare function castPath<T extends TKey>(value: T, object: object): ReturnCashPath<T>;
 
 export { castPath as default };

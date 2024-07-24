@@ -3,7 +3,7 @@ import isIndex from "./isIndex";
 import assignValue from "./assignValue";
 import {DATATYPE} from "../types/common";
 import {NestedKeyOf, NestedKeyValue} from "../types/get";
-import  { checkType, isObject } from "../checkTypes";
+import { checkType, isNull, isObject } from "../checkTypes";
 
 
 const INFINITY = 1 / 0
@@ -28,19 +28,20 @@ function baseSet<T extends object,K extends NestedKeyOf<T>>(object : T, path : K
     let index = -1
     let nested = object
 
-    while (nested != null && ++index < length) {
-        const key = toKey(path[index])
-        let newValue = value
+    while (!isNull(nested) && ++index < length) {
+        const key = toKey(path[index]) as keyof T
+
+        let newValue = value as  T[keyof T]
 
         if (index !== lastIndex) {
-            const objValue = nested[key as keyof T]
+            const objValue = nested[key]
                 newValue = isObject(objValue)
-                    ? objValue as NestedKeyValue<T, K>
-                    : (isIndex(path[index + 1]) ? [] : {}) as NestedKeyValue<T, K>
+                    ? objValue as T[keyof T]
+                    : (isIndex(path[index + 1]) ? [] : {}) as T[keyof T]
 
         }
-        assignValue(nested, key as any, newValue)
-        nested = nested[key as keyof T] as T
+        assignValue(nested, key as keyof T, newValue)
+        nested = nested[key] as T
     }
     return object
 }
