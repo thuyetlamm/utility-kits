@@ -1,2 +1,0 @@
-var s=e=>Object.prototype.toString.call(e).slice(8,-1);var i=e=>s(e)==="Function";var p=(e,o)=>{if(!i(e)||!i(o))throw new TypeError("Expected a function");let t=(...c)=>{let r=o?o.apply(null,c):c[0],n=t.cache;if(n.has(r))return n.get(r);let a=e.apply(null,c);return t.cache=n.set(r,a)||n,a};return t.cache=new(p.Cache||Map),t};p.Cache=Map;var m=p;export{m as default};
-//# sourceMappingURL=memoize.mjs.map

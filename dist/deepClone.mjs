@@ -1,2 +1,0 @@
-var n=t=>{if(t===null||typeof t!="object")return t;if(Array.isArray(t)){let r=[];for(let e=0;e<t.length;e++)r[e]=n(t[e]);return r}if(t instanceof Object){let r={};for(let e in t)t.hasOwnProperty(e)&&(r[e]=n(t[e]));return r}throw new Error("Unable to copy object! Its type isn't supported.")},s=n;export{s as default};
-//# sourceMappingURL=deepClone.mjs.map

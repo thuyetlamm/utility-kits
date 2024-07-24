@@ -1,2 +1,0 @@
-var t=e=>Object.prototype.toString.call(e).slice(8,-1),o=e=>t(e)==="Object",n=e=>t(e)==="Array",r=e=>t(e)==="NaN",c=e=>t(e)==="Function",i=e=>t(e)==="Number",l=e=>t(e)==="String",s=e=>t(e)==="Symbol",p=e=>t(e)==="Null",u=e=>t(e)==="Undefined",N={isObject:o,isArray:n,isNaN:r,isFunction:c,checkType:t,isString:l,isNumber:i,isSymbol:s,isNull:p,isUndefined:u},y=N;export{t as checkType,y as default,n as isArray,c as isFunction,r as isNaN,p as isNull,i as isNumber,o as isObject,l as isString,s as isSymbol,u as isUndefined};
-//# sourceMappingURL=checkTypes.mjs.map

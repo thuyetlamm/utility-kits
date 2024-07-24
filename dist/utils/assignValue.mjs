@@ -1,2 +1,0 @@
-var i=Object.prototype.hasOwnProperty;function s(n,e,t){e==="__proto__"?Object.defineProperty(n,e,{configurable:!0,enumerable:!0,value:t,writable:!0}):n[e]=t}function f(n,e){return n===e||n!==n&&e!==e}function o(n,e,t){let r=n[e];i.call(n,e)&&f(r,t)?t===void 0&&!(e in n)&&s(n,e,t):(t!==0||1/Number(t)===1/Number(r))&&s(n,e,t)}var T=o;export{T as default};
-//# sourceMappingURL=assignValue.mjs.map

@@ -1,2 +1,0 @@
-import{Children as h,isValidElement as i}from"react";var a=({children:e})=>{let r=null,l=null;return h.forEach(e,o=>{i(o)&&(o.props.isTrue?o.props.isTrue&&!r&&(r=o):l=o)}),r||l};a.When=({children:e,isTrue:r})=>r&&e;a.Else=({children:e,render:r})=>r||e;var t=a;import n,{Children as s,Fragment as p}from"react";var d=({list:e,render:r,empty:l})=>n.createElement(p,null,n.createElement(t,null,n.createElement(t.When,{isTrue:Array.isArray(e)&&e.length>0},s.toArray(e.map(r))),n.createElement(t.Else,null,l))),m=d;export{m as Each,t as Show};
-//# sourceMappingURL=index.mjs.map

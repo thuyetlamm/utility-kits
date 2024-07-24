@@ -1,2 +1,0 @@
-var u=e=>Object.prototype.toString.call(e).slice(8,-1);var o=e=>u(e)==="NaN";var c="Invalid input: The result of the operation is NaN (Not a Number). Please ensure that all provided values are valid numbers.",s=(e,n)=>{let t=Number(e),r=Number(n);if(o(r+t))throw c;return t>=r},i=(e,n)=>{let t=Number(e),r=Number(n);if(o(r+t))throw c;return t>r},l=(e,n)=>{let t=Number(e),r=Number(n);if(o(r+t))throw c;return t<=r},a=(e,n)=>{let t=Number(e),r=Number(n);if(o(r+t))throw c;return t<r},b={gte:s,lt:a,lte:l,gt:i},f=b;export{f as default};
-//# sourceMappingURL=compare.mjs.map

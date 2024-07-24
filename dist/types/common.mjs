@@ -1,2 +1,0 @@
-var n=(e=>(e.Number="Number",e.String="String",e.Array="Array",e.Boolean="Boolean",e.Object="Object",e.Null="Null",e.Undefined="Undefined",e.Function="Function",e.NaN="NaN",e.Symbol="Symbol",e))(n||{});export{n as DATATYPE};
-//# sourceMappingURL=common.mjs.map

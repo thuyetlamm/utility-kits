@@ -1,2 +1,0 @@
-var u=t=>Object.prototype.toString.call(t).slice(8,-1);var i=t=>u(t)==="Function";var p=(t,n)=>{if(!i(t)||!i(n))throw new TypeError("Expected a function");let o=(...e)=>{let c=n?n.apply(null,e):e[0],r=o.cache;if(r.has(c))return r.get(c);let s=t.apply(null,e);return o.cache=r.set(c,s)||r,s};return o.cache=new(p.Cache||Map),o};p.Cache=Map;var a=p;var y=500,l=t=>{let n=a(t,(...o)=>{let{cache:e}=n;return(e==null?void 0:e.size)===y&&(e==null||e.clear()),o});return n},h=l;export{h as default};
-//# sourceMappingURL=memoizeCapped.mjs.map
