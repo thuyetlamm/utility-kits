@@ -1,18 +1,2 @@
-// src/types/common.ts
-var DATATYPE = /* @__PURE__ */ ((DATATYPE2) => {
-  DATATYPE2["Number"] = "Number";
-  DATATYPE2["String"] = "String";
-  DATATYPE2["Array"] = "Array";
-  DATATYPE2["Boolean"] = "Boolean";
-  DATATYPE2["Object"] = "Object";
-  DATATYPE2["Null"] = "Null";
-  DATATYPE2["Undefined"] = "Undefined";
-  DATATYPE2["Function"] = "Function";
-  DATATYPE2["NaN"] = "NaN";
-  DATATYPE2["Symbol"] = "Symbol";
-  return DATATYPE2;
-})(DATATYPE || {});
-export {
-  DATATYPE
-};
+var n=(e=>(e.Number="Number",e.String="String",e.Array="Array",e.Boolean="Boolean",e.Object="Object",e.Null="Null",e.Undefined="Undefined",e.Function="Function",e.NaN="NaN",e.Symbol="Symbol",e))(n||{});export{n as DATATYPE};
 //# sourceMappingURL=common.mjs.map

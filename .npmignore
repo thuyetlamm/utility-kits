@@ -5,3 +5,6 @@ coverage
 src
 *.log
 
+tsconfig.json
+tsup.config.ts
+*.tgz

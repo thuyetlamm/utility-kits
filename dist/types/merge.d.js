@@ -1,19 +1,2 @@
-"use strict";
-var __defProp = Object.defineProperty;
-var __getOwnPropDesc = Object.getOwnPropertyDescriptor;
-var __getOwnPropNames = Object.getOwnPropertyNames;
-var __hasOwnProp = Object.prototype.hasOwnProperty;
-var __copyProps = (to, from, except, desc) => {
-  if (from && typeof from === "object" || typeof from === "function") {
-    for (let key of __getOwnPropNames(from))
-      if (!__hasOwnProp.call(to, key) && key !== except)
-        __defProp(to, key, { get: () => from[key], enumerable: !(desc = __getOwnPropDesc(from, key)) || desc.enumerable });
-  }
-  return to;
-};
-var __toCommonJS = (mod) => __copyProps(__defProp({}, "__esModule", { value: true }), mod);
-
-// src/types/merge.d.ts
-var merge_d_exports = {};
-module.exports = __toCommonJS(merge_d_exports);
+"use strict";var b=Object.defineProperty;var j=Object.getOwnPropertyDescriptor;var n=Object.getOwnPropertyNames;var o=Object.prototype.hasOwnProperty;var p=(t,e,c,T)=>{if(e&&typeof e=="object"||typeof e=="function")for(let r of n(e))!o.call(t,r)&&r!==c&&b(t,r,{get:()=>e[r],enumerable:!(T=j(e,r))||T.enumerable});return t};var x=t=>p(b({},"__esModule",{value:!0}),t);var d={};module.exports=x(d);
 //# sourceMappingURL=merge.d.js.map

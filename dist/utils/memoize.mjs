@@ -1,28 +1,2 @@
-// src/checkTypes.ts
-var checkType = (value) => Object.prototype.toString.call(value).slice(8, -1);
-var isFunction = (value) => checkType(value) === "Function" /* Function */;
-
-// src/utils/memoize.ts
-var memoize = (func, resolver) => {
-  if (!isFunction(func) || !isFunction(resolver)) {
-    throw new TypeError("Expected a function");
-  }
-  const memoized = (...args) => {
-    const key = resolver ? resolver.apply(null, args) : args[0];
-    const cache = memoized.cache;
-    if (cache.has(key)) {
-      return cache.get(key);
-    }
-    const result = func.apply(null, args);
-    memoized.cache = cache.set(key, result) || cache;
-    return result;
-  };
-  memoized.cache = new (memoize.Cache || Map)();
-  return memoized;
-};
-memoize.Cache = Map;
-var memoize_default = memoize;
-export {
-  memoize_default as default
-};
+var s=e=>Object.prototype.toString.call(e).slice(8,-1);var i=e=>s(e)==="Function";var p=(e,o)=>{if(!i(e)||!i(o))throw new TypeError("Expected a function");let t=(...c)=>{let r=o?o.apply(null,c):c[0],n=t.cache;if(n.has(r))return n.get(r);let a=e.apply(null,c);return t.cache=n.set(r,a)||n,a};return t.cache=new(p.Cache||Map),t};p.Cache=Map;var m=p;export{m as default};
 //# sourceMappingURL=memoize.mjs.map

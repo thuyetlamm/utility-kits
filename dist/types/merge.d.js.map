@@ -1,1 +1,1 @@
-{"version":3,"sources":["../../src/types/merge.d.ts"],"sourcesContent":["export type MergeObject<T> = T extends object ? T : never\n"],"mappings":";;;;;;;;;;;;;;;;AAAA;AAAA;","names":[]}
+{"version":3,"sources":["../../src/types/merge.d.ts"],"sourcesContent":["export type MergeObject<T> = T extends object ? T : never\n"],"mappings":"+WAAA,IAAAA,EAAA,kBAAAC,EAAAD","names":["merge_d_exports","__toCommonJS"]}

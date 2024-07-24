@@ -1,22 +1,2 @@
-// src/checkTypes.ts
-var checkType = (value) => Object.prototype.toString.call(value).slice(8, -1);
-var isArray = (value) => checkType(value) === "Array" /* Array */;
-var isString = (value) => checkType(value) === "String" /* String */;
-
-// src/isEmpty.ts
-var isEmpty = (val) => {
-  if (!val) return true;
-  if (isArray(val) && val instanceof Array) {
-    return !val.length;
-  }
-  if (isString(val) && val instanceof String) return !(val.trim().length === 0);
-  if (val instanceof Map || val instanceof Set) {
-    return !val.size;
-  }
-  return !Object.keys(val != null ? val : {}).length;
-};
-var isEmpty_default = isEmpty;
-export {
-  isEmpty_default as default
-};
+var e=t=>Object.prototype.toString.call(t).slice(8,-1);var n=t=>e(t)==="Array";var r=t=>e(t)==="String";var o=t=>t?n(t)&&t instanceof Array?!t.length:r(t)&&t instanceof String?t.trim().length!==0:t instanceof Map||t instanceof Set?!t.size:!Object.keys(t!=null?t:{}).length:!0,y=o;export{y as default};
 //# sourceMappingURL=isEmpty.mjs.map

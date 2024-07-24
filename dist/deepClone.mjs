@@ -1,28 +1,2 @@
-// src/deepClone.ts
-var deepClone = (obj) => {
-  if (obj === null || typeof obj !== "object") {
-    return obj;
-  }
-  if (Array.isArray(obj)) {
-    const copy = [];
-    for (let i = 0; i < obj.length; i++) {
-      copy[i] = deepClone(obj[i]);
-    }
-    return copy;
-  }
-  if (obj instanceof Object) {
-    const copy = {};
-    for (const key in obj) {
-      if (obj.hasOwnProperty(key)) {
-        copy[key] = deepClone(obj[key]);
-      }
-    }
-    return copy;
-  }
-  throw new Error("Unable to copy object! Its type isn't supported.");
-};
-var deepClone_default = deepClone;
-export {
-  deepClone_default as default
-};
+var n=t=>{if(t===null||typeof t!="object")return t;if(Array.isArray(t)){let r=[];for(let e=0;e<t.length;e++)r[e]=n(t[e]);return r}if(t instanceof Object){let r={};for(let e in t)t.hasOwnProperty(e)&&(r[e]=n(t[e]));return r}throw new Error("Unable to copy object! Its type isn't supported.")},s=n;export{s as default};
 //# sourceMappingURL=deepClone.mjs.map
