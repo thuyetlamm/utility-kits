@@ -1,4 +1,4 @@
-import { isFunction } from "../checkTypes";
+import { isFunction } from "../checkTypes"
 
 /**
  * Creates a function that memoizes the result of `func`. If `resolver` is
@@ -13,32 +13,32 @@ import { isFunction } from "../checkTypes";
  * [`Map`](http://ecma-international.org/ecma-262/7.0/#sec-properties-of-the-map-prototype-object)
  * method interface of `clear`, `delete`, `get`, `has`, and `set`.
  *
-*/
-export type TKey =  [key?: TKey, ...rest: any[]]
-export type TFunction = (...args:  TKey) => string[]
+ */
+export type TKey = [key?: TKey, ...rest: any[]]
+export type TFunction = (...args: TKey) => string[]
 export type MemFunction = TFunction & {
-    cache? :Map<any,any>
-};
-
-const memoize = (func:TFunction, resolver :TFunction) => {
-    if (!isFunction(func) || !isFunction(resolver)) {
-        throw new TypeError('Expected a function');
-    }
-    const memoized = (...args: TKey) => {
-        const key = resolver ? resolver.apply(null, args) : args[0];
-        const cache = memoized.cache as Map<any,any>;
-
-        if (cache.has(key)) {
-            return cache.get(key);
-        }
-        const result = func.apply(null, args);
-        memoized.cache = cache.set(key, result) || cache;
-        return result;
-    };
-    memoized.cache = new (memoize.Cache || Map)();
-    return memoized;
+  cache?: Map<any, any>
 }
 
-memoize.Cache = Map;
+const memoize = (func: TFunction, resolver: TFunction) => {
+  if (!isFunction(func) || !isFunction(resolver)) {
+    throw new TypeError("Expected a function")
+  }
+  const memoized = (...args: TKey) => {
+    const key = resolver ? resolver.apply(null, args) : args[0]
+    const cache = memoized.cache as Map<any, any>
 
-export default memoize;
+    if (cache.has(key)) {
+      return cache.get(key)
+    }
+    const result = func.apply(null, args)
+    memoized.cache = cache.set(key, result) || cache
+    return result
+  }
+  memoized.cache = new (memoize.Cache || Map)()
+  return memoized
+}
+
+memoize.Cache = Map
+
+export default memoize
