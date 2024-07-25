@@ -1,6 +1,4 @@
-import compare from "../compare" // Adjust the import path to your actual file
-
-const isEqual = compare.isEqual
+import { isEqual } from "../compare" // Adjust the import path to your actual file
 
 // test("compare identical objects", () => {
 //   expect(isEqual({ a: 1 }, { a: 1 })).toBe(true)

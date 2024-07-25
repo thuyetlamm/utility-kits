@@ -1,6 +1,5 @@
 # .npmignore
 node_modules
-tests
 coverage
 src
 *.log
