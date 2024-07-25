@@ -2,7 +2,7 @@
   "author": "Lam Nguyen",
   "name": "utility-kits",
   "description": "A comprehensive collection of basic utility functions and component for React ( React >= 18)",
-  "version": "1.0.77",
+  "version": "1.0.78",
   "main": "./dist/index.js",
   "module": "./dist/index.mjs",
   "types": "./dist/index.d.ts",
