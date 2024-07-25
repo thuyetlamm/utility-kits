@@ -29,7 +29,7 @@
   "homepage": "https://github.com/thuyetlamm/utility-kits.git",
   "scripts": {
     "build": "tsup ./src",
-    "test": "jest",
+    "test": "yarn build && jest",
     "lint": "eslint 'src/**/*.{js,ts,tsx,jsx}'",
     "format": "prettier --write 'src/**/*.{js,ts,json,css,md}'",
     "prepare": "yarn build && husky install"

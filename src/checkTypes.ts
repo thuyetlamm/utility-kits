@@ -12,8 +12,19 @@ export const isNumber = <T>(value: T) => checkType(value) === DATATYPE.Number
 export const isString = <T>(value: T) => checkType(value) === DATATYPE.String
 export const isSymbol = <T>(value: T) => checkType(value) === DATATYPE.Symbol
 export const isNull = <T>(value: T) => checkType(value) === DATATYPE.Null
+export const isDate = <T>(value: T) => checkType(value) === DATATYPE.Date
 export const isUndefined = <T>(value: T) =>
   checkType(value) === DATATYPE.Undefined
+
+export const isSameType = <T>(...args: T[]) => {
+  if (!args || args.length <= 1) return Boolean(args?.length)
+
+  const [first, ...others] = args
+
+  const typeOfFirstArg = checkType(first)
+
+  return others.every((arg) => checkType(arg) === typeOfFirstArg)
+}
 
 const checkTypeInstance = {
   isObject,
@@ -26,5 +37,7 @@ const checkTypeInstance = {
   isSymbol,
   isNull,
   isUndefined,
+  isSameType,
+  isDate,
 }
 export default checkTypeInstance

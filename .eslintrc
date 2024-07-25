@@ -41,7 +41,8 @@
     "@typescript-eslint/no-explicit-any": "off",
     "import/no-unresolved": "off",
     "prefer-spread": "off",
-    "no-prototype-builtins": "off"
+    "no-prototype-builtins": "off",
+    "no-case-declarations": "off"
   },
   "settings": {
     "import/resolver": {

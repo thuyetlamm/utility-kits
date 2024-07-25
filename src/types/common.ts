@@ -1,5 +1,6 @@
 export type Nullable<T> = T | null
 export type Maybe<T> = T | undefined
+
 export enum DATATYPE {
   Number = "Number",
   String = "String",
@@ -11,4 +12,6 @@ export enum DATATYPE {
   Function = "Function",
   NaN = "NaN",
   Symbol = "Symbol",
+  Date = "Date",
+  GeneratorFunction = "GeneratorFunction",
 }

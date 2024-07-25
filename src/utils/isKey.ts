@@ -1,5 +1,5 @@
-import { DATATYPE } from "../types/common"
 import { checkType } from "../checkTypes"
+import { DATATYPE } from "../types/common"
 
 /** Used to match property names within property paths. */
 const reIsDeepProp = /\.|\[(?:[^[\]]*|(["'])(?:(?!\1)[^\\]|\\.)*?\1)\]/

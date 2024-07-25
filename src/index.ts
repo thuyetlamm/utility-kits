@@ -2,7 +2,7 @@ export { default as get } from "./get"
 export { default as deepClone } from "./deepClone"
 export { default as isEmpty } from "./isEmpty"
 export { default as merge } from "./merge"
-export { default as compare } from "./compare"
+export { lte, lt, gte, gt, isEqual } from "./compare"
 export { type Nullable, type Maybe } from "./types/common"
 
 export {
@@ -15,6 +15,8 @@ export {
   isNull,
   isNumber,
   isObject,
+  isDate,
+  isSameType,
 } from "./checkTypes"
 
 export { Show, Each } from "./components"
