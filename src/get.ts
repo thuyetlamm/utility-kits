@@ -4,7 +4,7 @@ import cashPath from "./utils/cashPath"
 const get = <T extends object, K extends NestedKeyOf<T> = NestedKeyOf<T>>(
   obj: T,
   key: K,
-  defaultValue?: NestedKeyValue<T, K>,
+  defaultValue?: any,
 ): NestedKeyValue<T, K> => {
   if (!obj || !key) return undefined as NestedKeyValue<T, K>
 
