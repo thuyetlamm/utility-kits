@@ -1,9 +1,14 @@
 # .npmignore
 node_modules
 coverage
-src
+src/
+tests/
 *.log
 
 tsconfig.json
 tsup.config.ts
 *.tgz
+
+dist/**/*.map
+*.map
+**/*.map
