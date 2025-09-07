@@ -4,6 +4,7 @@ export { default as isEmpty } from "./isEmpty"
 export { default as merge } from "./merge"
 export { lte, lt, gte, gt, isEqual } from "./compare"
 export { type Nullable, type Maybe } from "./types/common"
+export * as type from "./types/element"
 
 export {
   isSymbol,
@@ -19,7 +20,7 @@ export {
   isSameType,
 } from "./checkTypes"
 
-export { Show, Each } from "./components"
+export { Show, Each, Element } from "./components"
 
 export { default as set } from "./set"
 

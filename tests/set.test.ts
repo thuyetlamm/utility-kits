@@ -1,4 +1,4 @@
-import { set } from "../index"
+import { set } from "../src/index"
 
 const students = { name: "Lam Nguyen" }
 

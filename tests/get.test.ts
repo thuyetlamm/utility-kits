@@ -1,4 +1,4 @@
-import { get } from "../index"
+import { get } from "../src/index"
 
 test("get one floor", () => {
   const result = get({ a: 10 }, "a")

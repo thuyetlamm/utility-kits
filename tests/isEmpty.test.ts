@@ -1,5 +1,5 @@
 // Assuming isEmpty is defined in a file named isEmpty.ts
-import { isEmpty } from "../index"
+import { isEmpty } from "../src/index"
 
 describe("isEmpty function", () => {
   it("should return true for an empty string", () => {
