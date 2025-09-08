@@ -1,6 +1,6 @@
-import { NestedKeyOf, NestedKeyValue } from "./types/get"
-import baseSet from "./utils/baseSet"
-import { isFunction, isNull, isObject } from "./checkTypes"
+import { NestedKeyOf, NestedKeyValue } from "../../types/get"
+import baseSet from "../../utils/baseSet"
+import { isFunction, isNull, isObject } from "../types/checkTypes"
 
 type NotNestedKeyOf<T extends object, K> = K extends NestedKeyOf<T> ? never : K
 

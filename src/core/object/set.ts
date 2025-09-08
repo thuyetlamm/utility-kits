@@ -1,6 +1,6 @@
-import { NestedKeyOf, NestedKeyValue } from "./types/get"
-import baseSet from "./utils/baseSet"
-import { isFunction, isNull, isObject } from "./checkTypes"
+import { NestedKeyOf, NestedKeyValue } from "../../types/get"
+import baseSet from "../../utils/baseSet"
+import { isFunction, isNull, isObject } from "../types/checkTypes"
 
 // The main type you want to create
 type ValueType<T extends object, K> =

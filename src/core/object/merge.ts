@@ -1,5 +1,5 @@
 import deepClone from "./deepClone"
-import { MergeObject } from "./types/merge"
+import { MergeObject } from "../../types/merge"
 
 const merge = <T extends object>(target: T, source: T) => {
   if (!target || !source) return target ?? source

@@ -7,5 +7,6 @@ export default defineConfig({
   sourcemap: false,
   clean: true,
   minify: true,
+  splitting: false,
   outDir: "dist", // Output directory
 })

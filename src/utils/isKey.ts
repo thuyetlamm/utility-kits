@@ -1,4 +1,4 @@
-import { checkType } from "../checkTypes"
+import { checkType } from "../core/types/checkTypes"
 import { DATATYPE } from "../types/common"
 
 /** Used to match property names within property paths. */

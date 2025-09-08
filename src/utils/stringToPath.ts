@@ -1,5 +1,5 @@
 import memoizeCapped from "./memoizeCapped"
-import { isString } from "../checkTypes"
+import { isString } from "../core/types/checkTypes"
 
 const charCodeOfDot = ".".charCodeAt(0)
 const reEscapeChar = /\\(\\)?/g

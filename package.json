@@ -2,7 +2,7 @@
   "author": "Lam Nguyen",
   "name": "utility-kits",
   "description": "A comprehensive collection of basic utility functions and component for React ( React >= 18)",
-  "version": "0.0.84",
+  "version": "0.0.83",
   "main": "./dist/index.js",
   "module": "./dist/index.mjs",
   "types": "./dist/index.d.ts",
@@ -20,7 +20,7 @@
     "isNull",
     "typescript",
     "utils",
-    "loukas"
+    "react"
   ],
   "repository": {
     "type": "git",
@@ -80,5 +80,6 @@
   "license": "MIT",
   "dependencies": {
     "react": "^18.3.1"
-  }
+  },
+  "packageManager": "yarn@1.22.22+sha512.a6b2f7906b721bba3d67d4aff083df04dad64c399707841b7acf00f6b133b7ac24255f2652fa22ae3534329dc6180534e98d17432037ff6fd140556e2bb3137e"
 }

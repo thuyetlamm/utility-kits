@@ -1,5 +1,5 @@
 import { DATATYPE } from "../types/common"
-import { checkType, isNull, isObject } from "../checkTypes"
+import { checkType, isNull, isObject } from "../core/types/checkTypes"
 import castPath from "./cashPath"
 import assignValue from "./assignValue"
 import isIndex from "./isIndex"

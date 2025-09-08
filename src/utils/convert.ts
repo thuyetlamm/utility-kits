@@ -1,4 +1,4 @@
-import { isFunction } from "../checkTypes"
+import { isFunction } from "../core/types/checkTypes"
 
 const REGEX_CHARACTER_SPECIAL = new RegExp(
   "/\\/\\*[\\s\\S]*?\\*\\/|\\/\\/.*$/gm",

@@ -1,0 +1,5 @@
+export { default as get } from "./get"
+export { default as set } from "./set"
+export { default as setNew } from "./setNew"
+export { default as merge } from "./merge"
+export { default as deepClone } from "./deepClone"

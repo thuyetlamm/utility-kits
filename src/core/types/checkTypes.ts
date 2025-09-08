@@ -1,4 +1,4 @@
-import { DATATYPE } from "./types/common"
+import { DATATYPE } from "../../types/common"
 
 export const checkType = <T>(value: T) =>
   Object.prototype.toString.call(value).slice(8, -1) as DATATYPE

@@ -1,4 +1,4 @@
-import { isFunction } from "../checkTypes"
+import { isFunction } from "../core/types/checkTypes"
 
 /**
  * Creates a function that memoizes the result of `func`. If `resolver` is
